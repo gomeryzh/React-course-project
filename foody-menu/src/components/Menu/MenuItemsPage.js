@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 
-import * as api from '../../../../services/menu-api';
+import * as api from '../../services/menu-api';
 
 import MenuList from './MenuList';
 import CategorySelector from './CategorySelector';
