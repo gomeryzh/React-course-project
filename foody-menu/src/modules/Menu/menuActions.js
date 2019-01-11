@@ -17,9 +17,9 @@ const fetchRequest = () => ({
   type: FETCH_REQUEST,
 });
 
-const fetchSuccess = notes => ({
+const fetchSuccess = menu => ({
   type: FETCH_SUCCESS,
-  payload: notes,
+  payload: menu,
 });
 
 const addNoteSuccess = note => ({
