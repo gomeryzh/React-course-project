@@ -4,7 +4,7 @@ import queryString from 'query-string';
 
 import * as api from '../../services/menu-api';
 
-import MenuList from './MenuList';
+import MenuList from './MenuList/MenuList';
 import CategorySelector from './CategorySelector';
 import ClearFilter from './ClearFilter';
 

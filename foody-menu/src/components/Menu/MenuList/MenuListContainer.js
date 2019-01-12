@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import MenuList from './MenuList';
-import { filteredMenu } from '../../../modules/Menu/menuSelector';
+import { filteredMenu, getItems } from '../../../modules/Menu/menuSelector';
 import {
   fetchMenuItems,
   deleteNote,
@@ -12,6 +12,7 @@ class MenuListContainer extends Component {
   componentDidMount() {
     this.props.fetchMenuItems();
   }
+
   render() {
     return <MenuList {...this.props} />;
   }

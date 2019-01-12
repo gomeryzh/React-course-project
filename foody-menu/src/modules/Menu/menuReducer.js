@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import * as types from './menuActionsTypes';
 
-function notesReducer(state = [], { type, payload }) {
+function menuReducer(state = [], { type, payload }) {
   switch (type) {
     case types.FETCH_SUCCESS:
       return payload;
@@ -52,7 +52,7 @@ function errorReducer(state = null, { type, payload }) {
 }
 
 export default combineReducers({
-  items: notesReducer,
+  items: menuReducer,
   filter: filterReducer,
   loading: loadingReducer,
   error: errorReducer,

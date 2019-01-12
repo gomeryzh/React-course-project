@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import s from './MenuList.module.css';
 
-const MenuList = ({ menuItems, match, location }) => (
+const MenuList = ({ menu = [], match, location }) => (
   <ul>
-    {menuItems.map(item => (
+    {menu.map(item => (
       <li key={item.id}>
         <Link
           to={{
