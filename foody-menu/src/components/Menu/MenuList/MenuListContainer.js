@@ -1,12 +1,14 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import MenuList from './MenuList';
-import { filteredMenu, getItems } from '../../../modules/Menu/menuSelector';
+import { filteredMenu } from '../../../modules/Menu/menuSelector';
 import {
   fetchMenuItems,
   deleteNote,
   toggleNote,
 } from '../../../modules/Menu/menuOperations';
+import MenuFilter from '../MenuFilter/MenuFilterContainer';
+import CategorySelector from '../CategorySelector/CategorySelectorContainer';
 
 class MenuListContainer extends Component {
   componentDidMount() {
@@ -14,7 +16,13 @@ class MenuListContainer extends Component {
   }
 
   render() {
-    return <MenuList {...this.props} />;
+    return (
+      <>
+        <MenuFilter />
+        <CategorySelector />
+        <MenuList {...this.props} />
+      </>
+    );
   }
 }
 

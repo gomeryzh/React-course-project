@@ -8,7 +8,7 @@ import {
   FETCH_ERROR,
 } from './menuActionsTypes';
 
-const filterNote = filter => ({
+const filterMenu = filter => ({
   type: CHANGE_FILTER,
   payload: filter,
 });
@@ -46,7 +46,7 @@ export {
   addNoteSuccess,
   deleteNoteSuccess,
   toggleNoteSuccess,
-  filterNote,
+  filterMenu,
   fetchRequest,
   fetchSuccess,
   fetchError,

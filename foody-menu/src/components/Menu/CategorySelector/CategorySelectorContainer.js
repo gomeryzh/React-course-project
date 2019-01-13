@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 
-import * as api from '../../services/menu-api';
+import * as api from '../../../services/menu-api';
 
-import MenuList from './MenuList/MenuList';
-import CategorySelector from './CategorySelector/CategorySelectorContainer';
-import ClearFilter from './ClearFilter';
+import CategorySelector from './CategorySelector';
 
 const getCategoryFromProps = props =>
   queryString.parse(props.location.search).category;
 
-class MenuItemsPage extends Component {
+class CategorySelectorContainer extends Component {
   state = {
-    menuItems: [],
     categories: [],
   };
 
@@ -23,13 +20,13 @@ class MenuItemsPage extends Component {
 
     const category = getCategoryFromProps(this.props);
     if (!category) {
-      const menuItems = await api.getAllMenuItems();
-      this.setState({ menuItems });
+      // const menuItems = await api.getAllMenuItems();
+      // this.setState({ menuItems });
       return;
     }
 
-    const itemsByCategory = await api.getMenuItemsWithCategory(category);
-    this.setState({ menuItems: itemsByCategory });
+    // const itemsByCategory = await api.getMenuItemsWithCategory(category);
+    // this.setState({ menuItems: itemsByCategory });
   };
 
   componentDidUpdate = async prevProps => {
@@ -66,11 +63,7 @@ class MenuItemsPage extends Component {
     const currentCategory = getCategoryFromProps(this.props);
     return (
       <div>
-        <h1>Menu Page</h1>
-        <button type="button" onClick={this.handleGoBack}>
-          На главную страницу
-        </button>
-        <hr />
+        <br />
         <CategorySelector
           options={categories}
           onChange={this.handleOnCategoryChange}
@@ -78,12 +71,12 @@ class MenuItemsPage extends Component {
         />
         <br />
         {currentCategory && <h2>Текущий фильтр: {currentCategory}</h2>}
-        <ClearFilter />
+        {/* <ClearFilter />
         <hr />
-        <MenuList menuItems={menuItems} />
+        <MenuList menuItems={menuItems} /> */}
       </div>
     );
   }
 }
 
-export default withRouter(MenuItemsPage);
+export default withRouter(CategorySelectorContainer);

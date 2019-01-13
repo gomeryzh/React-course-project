@@ -20,6 +20,17 @@ const fetchMenuItems = () => async dispatch => {
   }
 };
 
+const fetchCategories = () => async dispatch => {
+  dispatch(fetchRequest());
+
+  try {
+    const response = await axios.get('http://localhost:3006/categories');
+    dispatch(fetchSuccess(response.data));
+  } catch (error) {
+    dispatch(fetchError(error));
+  }
+};
+
 const addNote = text => async dispatch => {
   dispatch(fetchRequest());
 
@@ -56,4 +67,4 @@ const toggleNote = id => async dispatch => {
   }
 };
 
-export { fetchMenuItems, addNote, deleteNote, toggleNote };
+export { fetchMenuItems, fetchCategories, addNote, deleteNote, toggleNote };

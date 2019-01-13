@@ -3,21 +3,16 @@ import { Route, Switch } from 'react-router-dom';
 
 import NotFoundPage from './components/Pages/NotFoundPage';
 import Loader from './components/Loader/Loader';
-import MenuList from './components/Menu/MenuList/MenuList';
-
-const AsyncMenuItemsPage = lazy(
-  () => import('./components/Menu/MenuItemsPage'),
-  /* webpackChunkName: "MenuItemsPage"
-   */
-);
 
 const AsyncMenuItemPage = lazy(
   () => import('./components/Menu/MenuItem/MenuItemPage'),
-  /* webpackChunkName: "MenuItemPage"
+  /* webpackChunkName: "MenuItemPage"cd
    */
 );
 
-const AsyncMenuList = lazy(() => import('./components/Menu/MenuList/MenuList'));
+const AsyncMenuList = lazy(() =>
+  import('./components/Menu/MenuList/MenuListContainer'),
+);
 
 export default class App extends Component {
   state = {};
@@ -25,16 +20,22 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <MenuList />
         <Switch>
           <Suspense fallback={<Loader />}>
-            <Route exact path="/menuList" component={AsyncMenuList} />
+            <Route exact path="/menu" component={AsyncMenuList} />
             <Route exact path="/menu/:id" component={AsyncMenuItemPage} />
-            <Route exact path="/menu" component={AsyncMenuItemsPage} />
 
             <Route exact path="/NotFoundPage" component={NotFoundPage} />
           </Suspense>
         </Switch>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
       </div>
     );
   }

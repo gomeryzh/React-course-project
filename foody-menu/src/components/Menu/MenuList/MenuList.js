@@ -1,26 +1,21 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+// import { Link, withRouter } from 'react-router-dom';
 import s from './MenuList.module.css';
+import MenuListItem from './MenuListItem';
 
-const MenuList = ({ menu = [], match, location }) => (
+const MenuList = ({ menu = [] }) => (
   <ul>
     {menu.map(item => (
       <li key={item.id}>
-        <Link
-          to={{
-            pathname: `${match.url}/${item.id}`,
-            state: { from: location },
-          }}
-        >
-          <img src={item.image} alt={item.name} className={s.img} />
-          <span>{item.name}</span>
-          <p>
-            <b>Price: {item.price}</b>
-          </p>
-        </Link>
+        <MenuListItem
+          key={item.id}
+          {...item}
+          imgSrc={item.image}
+          itemId={item.id}
+        />
       </li>
     ))}
   </ul>
 );
 
-export default withRouter(MenuList);
+export default MenuList;
