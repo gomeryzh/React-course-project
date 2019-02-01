@@ -1,0 +1,28 @@
+{
+  "contacts": [
+    {
+      "name": "Jon Doe #1",
+      "phone": "+380123456789",
+      "email": "johndoe@coaxsoft.com",
+      "id": "DuS~IkS"
+    },
+    {
+      "name": "Jon Doe #2",
+      "phone": "+380123456789",
+      "email": "johndoe@coaxsoft.com",
+      "id": "qHPREih"
+    },
+    {
+      "name": "Jon Doe #3",
+      "phone": "+380123456789",
+      "email": "johndoe@coaxsoft.com",
+      "id": "bLb1FC5"
+    },
+    {
+      "name": "Jon Doe #4",
+      "phone": "+380123456789",
+      "email": "johndoe@coaxsoft.com",
+      "id": "47sFaQb"
+    }
+  ]
+}
