@@ -15,6 +15,7 @@ export default class MenuItemPage extends Component {
   componentDidMount = async () => {
     const { match } = this.props;
     const menuItem = await api.getMenuItemById(match.params.id);
+    console.log(menuItem);
     this.setState({ ...menuItem });
   };
 
