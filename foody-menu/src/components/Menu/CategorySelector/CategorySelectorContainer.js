@@ -25,8 +25,8 @@ class CategorySelectorContainer extends Component {
       return;
     }
 
-    // const itemsByCategory = await api.getMenuItemsWithCategory(category);
-    // this.setState({ menuItems: itemsByCategory });
+    const itemsByCategory = await api.getMenuItemsWithCategory(category);
+    this.setState({ menuItems: itemsByCategory });
   };
 
   componentDidUpdate = async prevProps => {

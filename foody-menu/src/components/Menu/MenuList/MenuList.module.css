@@ -2,23 +2,29 @@
   text-decoration: none;
 }
 
-img {
+.img {
   display: block;
-  max-width: 200px;
-  max-height: 200px;
+  width: 100px;
+  height: 100px;
 }
 
 ul {
   list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
 }
 
 li {
   margin-bottom: 20px;
+  margin-right: 1px;
   max-width: 70%;
 }
 
 li:last-child {
   margin-bottom: 0;
+  margin-right: 0;
 }
 
 span {
