@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import ContactsList from './ContactsList';
 import { filteredContacts } from '../../redux/modules/contacts/contactsSelector';
 import {
-  fetchContacts,
+  fetchContacts1,
   addContact,
   deleteContact,
 } from '../../redux/modules/contacts/contactsOperations';
 
 class ContactsListContainer extends Component {
   componentDidMount = () => {
-    this.props.fetchContacts();
+    this.props.fetchContacts1();
   };
 
   render() {
@@ -23,7 +23,7 @@ const mapState = state => ({
 });
 
 const mapDispatch = {
-  fetchContacts,
+  fetchContacts1,
   addContact,
   deleteContact,
 };
