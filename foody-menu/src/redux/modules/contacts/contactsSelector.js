@@ -14,4 +14,20 @@ const getContactbyID = createSelector(
   items => items.find(({ id }) => id),
 );
 
-export { getContacts, getFilter, filteredContacts, getContactbyID };
+const getProductIds = state => state.contacts.items.ids;
+
+const getProductsEntities = state => state.contacts.items.entities.menu;
+
+const getProducts = createSelector(
+  [getProductIds, getProductsEntities],
+  (ids, entities) => ids.map(id => entities[id]),
+);
+
+export {
+  getProducts,
+  getProductsEntities,
+  getContacts,
+  getFilter,
+  filteredContacts,
+  getContactbyID,
+};
