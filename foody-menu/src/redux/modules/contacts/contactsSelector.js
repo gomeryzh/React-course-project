@@ -14,7 +14,7 @@ const getContactbyID = createSelector(
   items => items.find(({ id }) => id),
 );
 
-const getProductIds = state => state.contacts.items.ids;
+const getProductIds = state => state.contacts.items.ids.menu;
 
 const getProductsEntities = state => state.contacts.items.entities.menu;
 
