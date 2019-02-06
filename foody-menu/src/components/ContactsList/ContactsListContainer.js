@@ -4,6 +4,7 @@ import ContactsList from './ContactsList';
 import {
   filteredContacts,
   getProducts,
+  filterProducts,
 } from '../../redux/modules/contacts/contactsSelector';
 import {
   fetchContacts1,
@@ -14,6 +15,7 @@ import {
 class ContactsListContainer extends Component {
   componentDidMount = () => {
     this.props.fetchContacts1();
+    console.log(this.props);
   };
 
   render() {
@@ -22,7 +24,7 @@ class ContactsListContainer extends Component {
 }
 
 const mapState = state => ({
-  contacts: getProducts(state),
+  contacts: filterProducts(state),
 });
 
 const mapDispatch = {

@@ -50,7 +50,6 @@ const fetchSuccess1 = menu => {
       ids: {
         menu: Object.keys(normalizedMenu.entities.menu),
       },
-      entities: normalizedMenu.entities,
     },
   };
 };

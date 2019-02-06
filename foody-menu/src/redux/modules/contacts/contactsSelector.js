@@ -23,11 +23,20 @@ const getProducts = createSelector(
   (ids, entities) => ids.map(id => entities[id]),
 );
 
+const filterProducts = createSelector(
+  [getProductIds, getProductsEntities, getFilter],
+  (ids, entities, filter) =>
+    ids
+      .map(id => entities[id])
+      .filter(item => item.name.toLowerCase().includes(filter)),
+);
+
 export {
   getProducts,
   getProductsEntities,
   getContacts,
   getFilter,
   filteredContacts,
+  filterProducts,
   getContactbyID,
 };

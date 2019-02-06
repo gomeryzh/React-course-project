@@ -29,7 +29,6 @@ export const fetchContacts1 = () => async dispatch => {
   try {
     const response = await axios.get('/menu');
     dispatch(fetchSuccess1(response.data));
-    console.log(response.data);
   } catch (error) {
     dispatch(fetchError(error));
   }
