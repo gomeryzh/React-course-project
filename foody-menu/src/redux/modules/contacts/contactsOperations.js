@@ -2,8 +2,6 @@ import axios from 'axios';
 import {
   fetchRequest,
   fetchSuccess,
-  fetchSuccess1,
-  fetchItem,
   fetchError,
   addContactSuccess,
   deleteContactSuccess,
@@ -11,37 +9,14 @@ import {
 
 axios.defaults.baseURL = 'http://localhost:3004';
 
-// export const fetchContacts = () => async dispatch => {
-//   dispatch(fetchRequest());
-
-//   try {
-//     const response = await axios.get('/menu');
-//     dispatch(fetchSuccess(response.data));
-//     console.log(response.data);
-//   } catch (error) {
-//     dispatch(fetchError(error));
-//   }
-// };
-
-export const fetchContacts1 = () => async dispatch => {
+export const fetchContacts = () => async dispatch => {
   dispatch(fetchRequest());
 
   try {
     const response = await axios.get('/menu');
-    dispatch(fetchSuccess1(response.data));
+    dispatch(fetchSuccess(response.data));
   } catch (error) {
     dispatch(fetchError(error));
-  }
-};
-
-export const getMenuItemById = () => async (dispatch, id) => {
-  dispatch(fetchRequest());
-  try {
-    const response = await axios.get(`/menu/${id}`);
-    dispatch(fetchItem(response.data));
-  } catch (error) {
-    dispatch(fetchError(error));
-    console.log(error);
   }
 };
 

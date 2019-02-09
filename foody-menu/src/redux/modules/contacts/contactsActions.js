@@ -7,7 +7,6 @@ import {
   CHANGE_FILTER,
   FETCH_REQUEST,
   FETCH_SUCCESS,
-  FETCH_SUCCESS1,
   FETCH_ERROR,
   FETCH_ITEM,
 } from './contactsActionsTypes';
@@ -36,20 +35,15 @@ const fetchRequest = () => ({
   type: FETCH_REQUEST,
 });
 
-const fetchSuccess = notes => ({
-  type: FETCH_SUCCESS,
-  payload: notes,
-});
-
-const fetchSuccess1 = menu => {
+const fetchSuccess = menu => {
   const normalizedMenu = normalize(menu, [schemas.menuSchema]);
-  console.log(normalizedMenu);
   return {
-    type: FETCH_SUCCESS1,
+    type: FETCH_SUCCESS,
     payload: {
       ids: {
         menu: Object.keys(normalizedMenu.entities.menu),
       },
+      entities: normalizedMenu.entities,
     },
   };
 };
@@ -65,7 +59,6 @@ export {
   filterContact,
   fetchRequest,
   fetchSuccess,
-  fetchSuccess1,
   fetchError,
   fetchItem,
 };

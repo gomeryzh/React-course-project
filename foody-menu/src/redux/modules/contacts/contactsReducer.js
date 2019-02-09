@@ -3,8 +3,8 @@ import * as types from './contactsActionsTypes';
 
 function contactsReducer(state = [], { type, payload }) {
   switch (type) {
-    case types.FETCH_SUCCESS1:
-      return payload;
+    case types.FETCH_SUCCESS:
+      return payload.ids.menu;
     case types.ADD_SUCCESS:
       return [...state, payload];
     case types.DELETE_SUCCESS:

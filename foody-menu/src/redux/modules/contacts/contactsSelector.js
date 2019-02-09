@@ -1,29 +1,17 @@
 import { createSelector } from 'reselect';
 
-const getContacts = state => state.contacts.items;
 const getFilter = state => state.contacts.filter;
 
-const filteredContacts = createSelector(
-  [getContacts, getFilter],
-  (items, filter) =>
-    items.filter(item => item.name.toLowerCase().includes(filter)),
-);
+const getProductIds = state => state.contacts.items;
 
-const getContactbyID = createSelector(
-  [getContacts],
-  items => items.find(({ id }) => id),
-);
-
-const getProductIds = state => state.contacts.items.ids.menu;
-
-const getProductsEntities = state => state.contacts.items.entities.menu;
+const getProductsEntities = state => state.entities.menu;
 
 const getProducts = createSelector(
   [getProductIds, getProductsEntities],
   (ids, entities) => ids.map(id => entities[id]),
 );
 
-const filterProducts = createSelector(
+const filteredProducts = createSelector(
   [getProductIds, getProductsEntities, getFilter],
   (ids, entities, filter) =>
     ids
@@ -31,12 +19,4 @@ const filterProducts = createSelector(
       .filter(item => item.name.toLowerCase().includes(filter)),
 );
 
-export {
-  getProducts,
-  getProductsEntities,
-  getContacts,
-  getFilter,
-  filteredContacts,
-  filterProducts,
-  getContactbyID,
-};
+export { getProducts, getProductsEntities, getFilter, filteredProducts };

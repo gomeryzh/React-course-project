@@ -1,20 +1,16 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import ContactsList from './ContactsList';
+import { filteredProducts } from '../../redux/modules/contacts/contactsSelector';
 import {
-  filteredContacts,
-  getProducts,
-  filterProducts,
-} from '../../redux/modules/contacts/contactsSelector';
-import {
-  fetchContacts1,
+  fetchContacts,
   addContact,
   deleteContact,
 } from '../../redux/modules/contacts/contactsOperations';
 
 class ContactsListContainer extends Component {
   componentDidMount = () => {
-    this.props.fetchContacts1();
+    this.props.fetchContacts();
     console.log(this.props);
   };
 
@@ -24,11 +20,11 @@ class ContactsListContainer extends Component {
 }
 
 const mapState = state => ({
-  contacts: filterProducts(state),
+  contacts: filteredProducts(state),
 });
 
 const mapDispatch = {
-  fetchContacts1,
+  fetchContacts,
   addContact,
   deleteContact,
 };
