@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import ContactsList from './ContactsList';
+
 import { filteredProducts } from '../../redux/modules/contacts/contactsSelector';
 import {
   fetchContacts,
   addContact,
   deleteContact,
 } from '../../redux/modules/contacts/contactsOperations';
+import { addToCart } from '../../redux/modules/Cart/actions';
 
+import AppHeader from '../AppHeader/AppHeader';
 class ContactsListContainer extends Component {
   componentDidMount = () => {
     this.props.fetchContacts();
@@ -15,7 +18,12 @@ class ContactsListContainer extends Component {
   };
 
   render() {
-    return <ContactsList {...this.props} />;
+    return (
+      <>
+        <AppHeader />
+        <ContactsList {...this.props} />
+      </>
+    );
   }
 }
 
@@ -27,6 +35,7 @@ const mapDispatch = {
   fetchContacts,
   addContact,
   deleteContact,
+  addToCart,
 };
 
 export default connect(

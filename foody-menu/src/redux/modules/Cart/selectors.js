@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 // Products
 const getProductIds = state => state.products;
 
-const getProductsEntities = state => state.entities.products;
+const getProductsEntities = state => state.entities.menu;
 
 export const getProducts = createSelector(
   [getProductIds, getProductsEntities],
@@ -28,12 +28,3 @@ export const getCartProductsAmount = createSelector(
   getCartProductIds,
   ids => ids.length,
 );
-
-// export const getCartProducts = createSelector(
-//     [getCartProductIds, getCartProductAmounts, getProductsEntities],
-//     (ids, amounts, entities) =>
-//         ids.map(id => ({
-//             ...entities[id],
-//             amount: amounts[id],
-//         })),
-// );
